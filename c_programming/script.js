@@ -1,3 +1,49 @@
+const renderContent = (content, mediaUrl) => {
+    let htmlContent = `<pre class="whitespace-pre-wrap font-sans text-sm mb-4">${content}</pre>`;
+
+    if (mediaUrl) {
+        // Match video URLs (e.g., YouTube)
+        const videoRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:embed\/|v\/|watch\?v=)|youtu\.be\/)([\w\-]+)/i;
+        // Match image file extensions
+        const imageRegex = /\.(jpeg|jpg|gif|png)$/i;
+        // Match local image paths (assuming they're in src/images/)
+        const localImageRegex = /^src\/images\//i;
+
+        if (videoRegex.test(mediaUrl)) {
+            const videoId = mediaUrl.match(videoRegex)[1];
+            htmlContent += `
+                <div class="mt-4">
+                    <iframe
+                        width="100%"
+                        height="315"
+                        src="https://www.youtube.com/embed/${videoId}"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            `;
+        } else if (imageRegex.test(mediaUrl) || localImageRegex.test(mediaUrl)) {
+            htmlContent += `
+                <div class="mt-4">
+                    <img src="${mediaUrl}" alt="Content illustration" class="max-w-full h-auto rounded-lg shadow-md" />
+                </div>
+            `;
+        } else {
+            htmlContent += `
+                <div class="mt-4">
+                    <a href="${mediaUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
+                        View associated media
+                    </a>
+                </div>
+            `;
+        }
+    }
+
+    return htmlContent;
+};
+
 const StudyGuide = () => {
     const [currentTopic, setCurrentTopic] = React.useState('imperativeProgramming');
     const [expandedSections, setExpandedSections] = React.useState({});
@@ -40,11 +86,11 @@ const StudyGuide = () => {
                                     className="flex justify-between items-center w-full p-4 text-left font-semibold bg-gray-50 hover:bg-gray-100 transition-colors duration-200"
                                 >
                                     {section.title}
-                                    {expandedSections[index] ? '▲' : '▼'}
+                                    <span>{expandedSections[index] ? '▲' : '▼'}</span>
                                 </button>
                                 {expandedSections[index] && (
                                     <div className="p-4 bg-white">
-                                        <pre className="whitespace-pre-wrap font-sans text-sm">{section.content}</pre>
+                                        <div dangerouslySetInnerHTML={{ __html: renderContent(section.content, section.mediaUrl) }} />
                                     </div>
                                 )}
                             </div>

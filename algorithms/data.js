@@ -4,15 +4,18 @@ const topics = {
         sections: [
             {
                 title: "Introduction to Algorithms",
-                content: "An algorithm is a step-by-step procedure or formula for solving a problem. Key characteristics of algorithms include input, output, definiteness, finiteness, and effectiveness."
+                content: "An algorithm is a step-by-step procedure or formula for solving a problem. Key characteristics of algorithms include input, output, definiteness, finiteness, and effectiveness.",
+                mediaUrl: "https://www.youtube.com/watch?v=6hfOvs8pY1k"
             },
             {
                 title: "Types of Algorithms",
-                content: "Common types include sorting algorithms (e.g., Bubble Sort, Quick Sort), search algorithms (e.g., Binary Search, Depth-First Search), and graph algorithms (e.g., Dijkstra's algorithm)."
+                content: "Common types include sorting algorithms (e.g., Bubble Sort, Quick Sort), search algorithms (e.g., Binary Search, Depth-First Search), and graph algorithms (e.g., Dijkstra's algorithm).",
+                mediaUrl: "https://www.youtube.com/watch?v=p7JREh-W3ZU"
             },
             {
                 title: "Algorithm Complexity",
-                content: "Algorithm complexity is measured in terms of time complexity (how long it takes to run) and space complexity (how much memory it uses). Big O notation is commonly used to express complexity."
+                content: "Algorithm complexity is measured in terms of time complexity (how long it takes to run) and space complexity (how much memory it uses). Big O notation is commonly used to express complexity.",
+                mediaUrl: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162247/Array-data-structure.png"
             }
         ]
     },

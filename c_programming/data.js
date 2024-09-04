@@ -2,6 +2,148 @@ const topics = {
     imperativeProgramming: {
         title: "Introduction to Imperative Programming",
         sections: [
+                    {
+            title: "Introduction to C",
+            content: `Introduction to C programming with a basic program structure example.
+
+Example:
+#include <stdio.h>
+int main() {
+    printf("Welcome to CS 1621!\\n");
+}`
+        },
+        {
+            title: "Preprocessor Directives",
+            content: `Preprocessor directives are lines that begin with a # and instruct the compiler to process certain transformations before the actual compilation.
+
+Example:
+#include <stdio.h>  // Includes the standard I/O library`
+        },
+        {
+            title: "Program Basics",
+            content: `The basic skeleton of a C program includes:
+- Preprocessor directives
+- Global declarations
+- Functions
+- Local declarations
+- Statements`
+        },
+        {
+            title: "Main Function",
+            content: `Every C program has a main function, which is the entry point for program execution.
+
+Example:
+int main() {
+    // Statements
+    return 0;
+}`
+        },
+        {
+            title: "Comments and Documentation",
+            content: `Comments are used to document code for readability and are ignored by the compiler. C supports both single-line and multi-line comments.
+
+Single-line comment:
+    // This is a single-line comment
+
+Multi-line comment:
+    /* This is a multi-line comment
+       that spans multiple lines */`
+        },
+        {
+            title: "Variable Declarations",
+            content: `Variables are declared either globally or locally to a function. Atomic types in C include void, int, float, and char.
+
+Example:
+int x;  // Declaration
+x = 5;  // Assignment`
+        },
+        {
+            title: "Constants",
+            content: `Constants are fixed values that do not change during the execution of the program. They can be defined using literal constants, #define, or the const keyword.
+
+Example:
+#define MAX_NUMBER 100
+const float PI = 3.14159;`
+        },
+        {
+            title: "Formatted Input and Output",
+            content: `C provides functions like printf() and scanf() for formatted input and output. Format specifiers determine how variables are displayed or entered.
+
+Example:
+printf("%d", sum);   // Outputs the value of sum as an integer
+scanf("%d", &x);     // Reads an integer input into the variable x`
+        },
+        {
+            title: "Data Types",
+            content: `C provides several fundamental data types such as int, char, float, and double. These define the type and size of data associated with variables.
+
+Type Sizes:
+int - 4 bytes
+char - 1 byte
+float - 4 bytes
+double - 8 bytes`
+        },
+        {
+            title: "Integer Types and Limitations",
+            content: `Integers can store whole numbers in C. The size of an integer determines the range of values it can store.
+
+- short int: 2 bytes, range: -32,768 to 32,767
+- int: 4 bytes, range: -2,147,483,648 to 2,147,483,647
+- long int: 4 bytes, similar range as int
+
+Two's Complement is used to represent negative numbers in binary.`
+        },
+        {
+            title: "Floating-Point Types",
+            content: `Floating-point types store real numbers in C and include:
+- float: 4 bytes
+- double: 8 bytes
+- long double: 10 bytes
+
+Example:
+float salary = 3000.50;
+double price = 12345.6789;`
+        },
+        {
+            title: "Literal Constants",
+            content: `Literal constants are values like numbers and characters directly written into the code. They initialize variables or define constants.
+
+Examples:
+5, -35, 401, 'A', 3.14159`
+        },
+        {
+            title: "Character Type",
+            content: `The 'char' type represents single characters in C. Special characters like newline and tab are represented using escape sequences.
+
+Example:
+char letter = 'A';
+char newline = '\\n';  // Represents a newline`
+        },
+        {
+            title: "Formatted Output",
+            content: `Formatted output uses printf. You can format integers, floats, characters, and strings using format specifiers like %d, %f, and %c.
+
+Example:
+printf("%d %f\\n", 35, 4.56);`
+        },
+        {
+            title: "Formatted Input with Scanf",
+            content: `Formatted input uses scanf, where you specify the format of data to read and store it in variables using the address operator (&).
+
+Example:
+scanf("%d %f", &x, &y);`
+        },
+        {
+            title: "Program Execution",
+            content: `Global declarations are initialized first, followed by the execution of the main function. Each statement is executed sequentially from top to bottom within the main function.`
+        },
+        {
+            title: "Multiple Variable Declarations",
+            content: `You can declare multiple variables of the same type in one statement, though declaring them on separate lines is stylistically preferable.
+
+Example:
+int x, y, z;  // Multiple declarations`
+        },
             {
                 title: "Introduction to Imperative Programming",
                 content: `Imperative programming is a programming paradigm where commands are given to the computer in a step-by-step manner, similar to giving orders in human languages.
@@ -24,7 +166,8 @@ Steps:
 2. Execution: './program'
    This runs the compiled program on the computer.
 
-Remember: Compile to translate, run to execute.`
+Remember: Compile to translate, run to execute.`,
+                mediaUrl: "https://www.youtube.com/watch?v=p7JREh-W3ZU"
             },
             {
                 title: "Understanding a Simple C Program",
@@ -183,103 +326,200 @@ Takeaway: Use compiler flags to enforce stricter standards and catch potential i
             }
         ]
     },
-    cLanguageIntroduction: {
-        title: "C Language Introduction",
-        lastUpdated: "03 Sep, 2024",
-        sections: [
-            {
-                title: "Overview of C Language",
-                content: `C is a procedural programming language initially developed by Dennis Ritchie in 1972 at Bell Laboratories of AT&T Labs. It was mainly created as a system programming language to write the UNIX operating system.
+    C_fundamentals: {
+    title: "C Fundamentals",
+    sections: [
+        {
+            title: "C Variable Values",
+            content: `Change Variable Values
+If you assign a new value to an existing variable, it will overwrite the previous value:
 
-Key Features:
-• General Purpose and Portable
-• Low-level Memory Access
-• Fast Speed
-• Clean Syntax
+Example:
+int myNum = 15;  // myNum is 15
+myNum = 10;  // Now myNum is 10
 
-These features make C suitable for system programming like an operating system or compiler development.`
-            },
-            {
-                title: "Why Should We Learn C?",
-                content: `Many modern languages have borrowed syntax or features directly or indirectly from C, including Java, PHP, and JavaScript. C++ is nearly a superset of C, so learning C helps in learning modern programming languages.
+You can also assign the value of one variable to another:
 
-Learning C also helps you understand the underlying architecture of the operating system, such as pointers and memory locations.
+Example:
+int myNum = 15;
+int myOtherNum = 23;
+myNum = myOtherNum;  // myNum is now 23
+printf("%d", myNum);
 
-Benefits of Learning C:
-• Easier transition to other languages
-• Understanding low-level operations and memory management`
-            },
-            {
-                title: "Difference Between C and C++",
-                content: `C++ was created to introduce the Object-Oriented Programming (OOP) paradigm into C, and they share very similar syntax. Here are some key differences:
+Or copy values to empty variables:
 
-• C++ supports OOP, while C only has procedural programming.
-• C++ has exception handling capabilities, while in C, exceptions need to be handled manually.
-• C++ includes references, while C does not.
+Example:
+// Create a variable and assign the value 15 to it
+int myNum = 15;
 
-For more information, check out: Difference between C and C++.`
-            },
-            {
-                title: "First Program in C",
-                content: `The following code demonstrates a simple C program:
+// Declare a variable without assigning it a value
+int myOtherNum;
+
+// Assign the value of myNum to myOtherNum
+myOtherNum = myNum;
+printf("%d", myOtherNum);`
+        },
+        {
+            title: "Add Variables Together",
+            content: `To add a variable to another variable, you can use the + operator:
+
+Example:
+int x = 5;
+int y = 6;
+int sum = x + y;
+printf("%d", sum);`
+        },
+        {
+            title: "C Exercises",
+            content: `Test Yourself With Exercises:
+Exercise:
+Display the sum of 5 + 10, using two variables: x and y.
+
+int x = 5;
+int y = 10;
+printf("%d", x + y);`
+        },
+        {
+            title: "C Data Types",
+            content: `In C programming, data types are declarations for variables. This determines the type and size of data associated with variables. For example:
+
+int myVar; // Here, myVar is a variable of int (integer) type.
+
+Basic types include:
+int, char, float, double.`
+        },
+        {
+            title: "Basic Data Type Sizes",
+            content: `Here's a table containing commonly used types in C programming for quick access:
+
+Type                  Size (bytes)  Format Specifier
+int               at least 2, usually 4 %d, %i
+char              1             %c
+float             4             %f
+double        8             %lf
+short int         2 usually     %hd
+unsigned int    at least 2, usually 4   %u
+long int          at least 4, usually 8 %ld, %li
+long long int     at least 8    %lld, %lli
+unsigned long int   at least 4  %lu
+unsigned long long int  at least 8  %llu
+signed char     1               %c
+unsigned char   1               %c
+long double at least 10, usually 12 or 16   %Lf`
+        },
+        {
+            title: "Integers in C",
+            content: `Integers are whole numbers that can have both zero, positive and negative values, but no decimal values. For example, 0, -5, 10.
+
+We can use int for declaring an integer variable:
+
+Example:
+int id;
+
+You can declare multiple variables at once in C programming. For example:
+
+Example:
+int id, age;
+
+The size of int is usually 4 bytes (32 bits) and can take 2^32 distinct states from -2147483648 to 2147483647.`
+        },
+        {
+            title: "Float and Double",
+            content: `float and double are used to hold real numbers. For example:
+
+float salary;
+double price;
+
+In C, floating-point numbers can also be represented in exponential form:
+
+float normalizationFactor = 22.442e2;
+
+Difference:
+The size of float (single precision) is 4 bytes. The size of double (double precision) is 8 bytes.`
+        },
+        {
+            title: "char Type",
+            content: `Keyword 'char' is used for declaring character type variables. For example:
+
+Example:
+char test = 'h';
+
+The size of a char variable is 1 byte.`
+        },
+        {
+            title: "void Type",
+            content: `void is an incomplete type that represents "nothing" or "no type". For example, if a function does not return anything, its return type should be void:
+
+Example:
+void myFunction() {
+    // no return statement
+}
+
+Note: You cannot create variables of void type.`
+        },
+        {
+            title: "short and long",
+            content: `If you need to use a large number, you can use the 'long' type specifier:
+
+Example:
+long a;
+long long b;
+long double c;
+
+Variables a and b can store integer values, while c can store a floating-point number.
+
+If you are sure only a small integer will be used, you can use 'short':
+
+Example:
+short d;`
+        },
+        {
+            title: "Sizeof Operator",
+            content: `You can check the size of a variable using the sizeof() operator. Example:
+
+#include <stdio.h>      
+int main() {
+  short a;
+  long b;
+  long long c;
+  long double d;
+
+  printf("size of short = %d bytes\\n", sizeof(a));
+  printf("size of long = %d bytes\\n", sizeof(b));
+  printf("size of long long = %d bytes\\n", sizeof(c));
+  printf("size of long double= %d bytes\\n", sizeof(d));
+  return 0;
+}`
+        },
+        {
+            title: "signed and unsigned",
+            content: `In C, signed and unsigned are type modifiers:
+
+- signed: allows storage of both positive and negative numbers.
+- unsigned: allows storage of only positive numbers.
 
 Example:
 
-\`\`\`c
-#include <stdio.h>
+// valid codes
+unsigned int x = 35;
+int y = -35;  // signed int
+int z = 36;  // signed int
 
-int main() {
-  int a = 10;
-  printf("%d", a);
-  
-  return 0;
+// invalid code: unsigned int cannot hold negative integers
+unsigned int num = -35;`
+        },
+        {
+            title: "Range of signed and unsigned",
+            content: `Considering the size of int is 4 bytes:
+
+- signed int can hold values from -2^31 to 2^31-1
+- unsigned int can hold values from 0 to 2^32-1`
+        },
+        {
+            title: "Derived Data Types",
+            content: `Data types derived from fundamental data types are derived types. Examples include arrays, pointers, function types, and structures. We will learn about these in later tutorials.`
+        }
+    ]
 }
-\`\`\`
-
-Output: 10
-
-Structure of a C program:
-1. Header files (e.g., \`#include <stdio.h>\`)
-2. Main function (\`int main()\`)
-3. Variable declarations and logic
-4. Return statement (\`return 0;\`)`
-            },
-            {
-                title: "Components of a C Program",
-                content: `Key components of a C program include:
-
-1. **Header Files Inclusion**: Include C function declarations and macro definitions (e.g., \`#include <stdio.h>\`).
-2. **Main Method Declaration**: This is the entry point of the program, denoted by \`int main()\`.
-3. **Body of Main Method**: Contains the program logic enclosed in curly braces.
-4. **Statements**: Instructions to the compiler (e.g., \`printf("Hello World");\`).
-5. **Return Statement**: Indicates the termination status of the program. \`return 0;\` usually means successful termination.`
-            },
-            {
-                title: "How to Execute a C Program",
-                content: `To execute a C program, follow these steps:
-
-1. **Compile the Program**: Use a C compiler (e.g., GCC) to compile the program:
-   - Windows: Use IDEs like Code Blocks or Dev-CPP.
-   - Linux: Use the GCC compiler.
-   - macOS: Use the built-in text editor and GCC.
-2. **Run the Program**: After compilation, run the executable file to see the output.
-
-Online IDEs, like GeeksforGeeksIDE, can also be used for C development without installation.`
-            },
-            {
-                title: "Applications of C",
-                content: `C is widely used in various fields:
-
-1. **Operating Systems**: C is used for developing Unix, Linux, and Windows.
-2. **Embedded Systems**: C is a popular choice for microcontrollers and electronic devices.
-3. **System Software**: C is used to develop device drivers, compilers, and assemblers.
-4. **Networking**: Used in network applications like web servers and network drivers.
-5. **Database Systems**: C is used in MySQL, Oracle, and PostgreSQL.
-6. **Gaming**: C is used for developing games due to its low-level hardware interaction.
-7. **Artificial Intelligence**: C is used in AI and machine learning applications.
-8. **Scientific Applications**: Used for simulation software and numerical analysis tools.
-9. **Financial Applications**: C is used for stock market analysis and trading systems.`
-            }
-        ]
-    }
+    
 };
