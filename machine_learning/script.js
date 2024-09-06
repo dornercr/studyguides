@@ -62,7 +62,7 @@ const renderContent = (content, mediaUrl) => {
 };
 
 const StudyGuide = () => {
-    const [currentTopic, setCurrentTopic] = React.useState('python_fundamentals');
+    const [currentTopic, setCurrentTopic] = React.useState('machineLearning');
     const [expandedSections, setExpandedSections] = React.useState({});
 
     const toggleSection = (index) => {

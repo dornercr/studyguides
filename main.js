@@ -1,7 +1,8 @@
 const studyGuides = [
     { id: 'algorithms', title: 'Algorithms', path: './algorithms/index.html' },
     { id: 'c_programming', title: 'C Programming', path: './c_programming/index.html' },
-    { id: 'python', title: 'Python', path: './python/index.html' }
+    { id: 'python', title: 'Python', path: './python/index.html' },
+    { id: 'machine_learning', title: 'Machine Learning', path: './machine_learning/index.html' }
     // Add more study guides here
 ];
 
